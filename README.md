@@ -250,23 +250,22 @@
         </div>
 
         <div id="escenario-inicio" class="pantalla">
-            <h1 class="titulo-neon">Academia Galáctica 👾</h1>
+            <h2 class="titulo-neon">Academia Galáctica 👾</h2>
             <p class="texto-descripcion">
-                ¡Atención cadete de 3ro y 4to grado! Los asteroides numéricos amenazan la nave espacial. Selecciona una operación para activar tus cañones láser automáticos. ¡Debes destruir 30 objetivos!
+             Los asteroides numéricos amenazan la nave espacial. Selecciona una operación.¡Debes destruir 30 objetivos!
             </p>
-
             <div class="cuadricula-operaciones">
                 <button class="btn-modo" data-tipo="suma" onclick="comenzarMision('suma')">
-                    <span>➕</span> Sumas Estelares
+                    <span>➕</span> Sumas 
                 </button>
                 <button class="btn-modo" data-tipo="resta" onclick="comenzarMision('resta')">
-                    <span>➖</span> Restas Cuánticas
+                    <span>➖</span> Restas 
                 </button>
                 <button class="btn-modo" data-tipo="multi" onclick="comenzarMision('multi')">
-                    <span>✖️</span> Hiper-Multiplicación
+                    <span>✖️</span> Multiplicación
                 </button>
                 <button class="btn-modo" data-tipo="divi" onclick="comenzarMision('divi')">
-                    <span>➗</span> Divisiones Gamma
+                    <span>➗</span> Divisiones 
                 </button>
             </div>
         </div>
