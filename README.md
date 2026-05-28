@@ -250,10 +250,7 @@
         </div>
 
         <div id="escenario-inicio" class="pantalla">
-            <h2 class="titulo-neon">Academia Galáctica 👾</h2>
-            <p class="texto-descripcion">
-             Los asteroides numéricos amenazan la nave espacial. Selecciona una operación.¡Debes destruir 30 objetivos!
-            </p>
+            <h3 class="titulo-neon">Academia Galáctica 👾</h3>
             <div class="cuadricula-operaciones">
                 <button class="btn-modo" data-tipo="suma" onclick="comenzarMision('suma')">
                     <span>➕</span> Sumas 
