@@ -1,4 +1,3 @@
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -28,8 +27,8 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
-            overflow: hidden;
+            padding: 10px; /* Reducido para mejor margen en celulares */
+            overflow-x: hidden;
         }
 
         .contenedor-videojuego {
@@ -45,48 +44,48 @@
 
         .barra-energia {
             background: rgba(255, 255, 255, 0.05);
-            padding: 15px 25px;
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid rgba(56, 189, 248, 0.2);
             color: var(--text-light);
-            font-size: 18px;
+            font-size: clamp(14px, 4vw, 18px);
             font-weight: bold;
         }
 
         /* Pantallas de Control de Flujo */
         .pantalla {
-            padding: 40px 30px;
+            padding: 25px 15px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 25px;
+            gap: 20px;
         }
 
         #escenario-juego { display: none; }
         #escenario-final { display: none; }
 
         .titulo-neon {
-            font-size: 38px;
+            font-size: clamp(24px, 7vw, 38px);
             color: var(--text-light);
             text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .texto-descripcion {
             color: #94A3B8;
-            font-size: 16px;
+            font-size: clamp(14px, 3.5vw, 16px);
             max-width: 500px;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        /* Selector de Tipo de Operación Creado para Niños */
+        /* Selector de Tipo de Operación Adaptable */
         .cuadricula-operaciones {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
             width: 100%;
             max-width: 500px;
         }
@@ -95,9 +94,9 @@
             background: rgba(255, 255, 255, 0.03);
             color: var(--text-light);
             border: 2px solid rgba(255, 255, 255, 0.2);
-            padding: 20px;
+            padding: 15px 10px;
             border-radius: 16px;
-            font-size: 20px;
+            font-size: clamp(16px, 4.5vw, 20px);
             font-weight: bold;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -112,17 +111,17 @@
         .btn-modo[data-tipo="multi"]:hover { border-color: var(--neon-blue); box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.05); }
         .btn-modo[data-tipo="divi"]:hover { border-color: var(--neon-red); box-shadow: 0 0 15px rgba(248, 113, 113, 0.4); background: rgba(248, 113, 113, 0.05); }
 
-        .btn-modo span { font-size: 32px; }
+        .btn-modo span { font-size: clamp(24px, 6vw, 32px); }
 
-        /* Área de Combate 2D */
+        /* Área de Combate 2D Adaptable */
         .cabina-operacion {
             background: linear-gradient(180deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
             border: 3px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
             width: 100%;
             max-width: 480px;
-            padding: 20px;
-            font-size: 52px;
+            padding: 15px;
+            font-size: clamp(34px, 10vw, 52px);
             color: var(--text-light);
             text-shadow: 0 0 15px rgba(255,255,255,0.4);
             letter-spacing: 2px;
@@ -134,15 +133,16 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            margin: 25px 0;
+            margin: 15px 0;
             position: relative;
+            gap: 15px;
         }
 
         /* Avatar del Navegante Cósmico */
         .avatar-astronauta {
-            font-size: 70px;
-            width: 110px;
-            height: 110px;
+            font-size: clamp(45px, 12vw, 70px);
+            width: clamp(75px, 18vw, 110px);
+            height: clamp(75px, 18vw, 110px);
             background: rgba(255,255,255,0.05);
             border-radius: 50%;
             display: flex;
@@ -150,11 +150,12 @@
             align-items: center;
             border: 3px dashed var(--neon-blue);
             animation: flotar 3s ease-in-out infinite;
+            flex-shrink: 0;
         }
 
         @keyframes flotar {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(3deg); }
+            50% { transform: translateY(-8px) rotate(3deg); }
         }
 
         .disparar-animacion { animation: laserFuego 0.3s ease-out; }
@@ -164,11 +165,11 @@
             100% { transform: scale(1); filter: brightness(1); }
         }
 
-        /* Asteroides de Respuesta Cósmica */
+        /* Cuadrícula de Asteroides de Respuesta Cósmica */
         .zona-asteroides {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
             width: 100%;
             max-width: 400px;
         }
@@ -177,28 +178,28 @@
             background: linear-gradient(135deg, #334155 0%, #1E293B 100%);
             border: 3px solid #475569;
             color: var(--text-light);
-            font-size: 28px;
+            font-size: clamp(20px, 5.5vw, 28px);
             font-weight: bold;
-            padding: 22px;
-            border-radius: 50% 40% 50% 45%; /* Forma irregular de roca espacial */
+            padding: clamp(12px, 3.5vw, 20px);
+            border-radius: 50% 40% 50% 45%; 
             cursor: pointer;
-            box-shadow: 0 6px 0 #0F172A, 0 10px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 0 #0F172A, 0 6px 12px rgba(0,0,0,0.4);
             transition: all 0.1s ease;
             text-align: center;
+            width: 100%;
         }
 
         .asteroide:hover {
-            transform: scale(1.04);
+            transform: scale(1.03);
             border-color: var(--neon-blue);
-            box-shadow: 0 6px 0 #0F172A, 0 0 15px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 4px 0 #0F172A, 0 0 12px rgba(56, 189, 248, 0.4);
         }
 
         .asteroide:active {
-            transform: translateY(4px);
-            box-shadow: 0 2px 0 #0F172A;
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #0F172A;
         }
 
-        /* Impactos Láser Visuales */
         .asteroide-destruido {
             background: var(--neon-green) !important;
             border-color: #22C55E !important;
@@ -213,17 +214,15 @@
             background: var(--neon-red) !important;
             border-color: #EF4444 !important;
             box-shadow: 0 0 20px var(--neon-red) !important;
-            transform: shake 0.3s ease;
             pointer-events: none;
         }
 
-        /* Botón de control de flujo estándar */
         .btn-unificado {
             background: var(--neon-green);
             color: #0F172A;
-            font-size: 22px;
+            font-size: clamp(18px, 5vw, 22px);
             font-weight: bold;
-            padding: 16px 45px;
+            padding: 12px 35px;
             border: none;
             border-radius: 14px;
             cursor: pointer;
@@ -233,11 +232,39 @@
         .btn-unificado:active { transform: translateY(4px); box-shadow: none; }
 
         .marcador-puntuacion-final {
-            font-size: 72px;
+            font-size: clamp(48px, 15vw, 72px);
             color: var(--neon-green);
             font-weight: 900;
             text-shadow: 0 0 15px rgba(74,222,128,0.3);
-            margin: 10px 0;
+            margin: 5px 0;
+        }
+
+        #consola-feedback {
+            min-height: 25px; 
+            font-weight: bold; 
+            font-size: clamp(14px, 4vw, 18px);
+            padding: 0 10px;
+        }
+
+        /* ========================================== */
+        /* RESPONSIVIDAD OPTIMIZADA PARA CELULARES */
+        /* ========================================== */
+        @media (max-width: 600px) {
+            .arena-espacial {
+                flex-direction: column; /* Cambia de horizontal a vertical en móviles */
+                gap: 20px;
+            }
+            .avatar-astronauta {
+                animation: flotarMovil 3s ease-in-out infinite;
+            }
+            .zona-asteroides {
+                max-width: 100%; /* Permite que use todo el ancho cómodo en celular */
+            }
+        }
+
+        @keyframes flotarMovil {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
         }
     </style>
 </head>
@@ -259,7 +286,7 @@
                     <span>➖</span> Restas 
                 </button>
                 <button class="btn-modo" data-tipo="multi" onclick="comenzarMision('multi')">
-                    <span>✖️</span> Multiplicación
+                    <span>✖️</span> Multiplicar
                 </button>
                 <button class="btn-modo" data-tipo="divi" onclick="comenzarMision('divi')">
                     <span>➗</span> Divisiones 
@@ -268,7 +295,7 @@
         </div>
 
         <div id="escenario-juego" class="pantalla">
-            <div style="color: #94A3B8; font-weight: bold; font-size: 16px;">
+            <div style="color: #94A3B8; font-weight: bold; font-size: 14px;">
                 Misión Progresiva: <span id="ronda-numero">1</span> / 30
             </div>
 
@@ -278,12 +305,10 @@
 
             <div class="arena-espacial">
                 <div class="avatar-astronauta" id="navegante">🧑‍🚀</div>
-
-                <div class="zona-asteroides" id="bloque-asteroides">
-                    </div>
+                <div class="zona-asteroides" id="bloque-asteroides"></div>
             </div>
 
-            <div style="min-height: 25px; font-weight: bold; font-size: 18px;" id="consola-feedback"></div>
+            <div id="consola-feedback"></div>
         </div>
 
         <div id="escenario-final" class="pantalla">
@@ -295,7 +320,6 @@
     </div>
 
     <script>
-        // Configuración centralizada del juego
         let modoJuego = ''; 
         let listaOperaciones = [];
         let indicePregunta = 0;
@@ -307,7 +331,6 @@
         let idReloj = null;
         let ejercicioActual = null;
 
-        // Contexto de Audio Web nativo espacial
         let ctxAudio = null;
         function iniciarAudioEspacial() {
             if (!ctxAudio) ctxAudio = new (window.AudioContext || window.webkitAudioContext)();
@@ -324,7 +347,7 @@
 
             if (tipo === 'laser_exito') {
                 osc.type = 'triangle';
-                osc.frequency.setValueAtTime(587.33, ctxAudio.currentTime); // Nota Re5
+                osc.frequency.setValueAtTime(587.33, ctxAudio.currentTime);
                 osc.frequency.exponentialRampToValueAtTime(1174.66, ctxAudio.currentTime + 0.25);
                 gainNode.gain.setValueAtTime(0.3, ctxAudio.currentTime);
                 gainNode.gain.exponentialRampToValueAtTime(0.01, ctxAudio.currentTime + 0.25);
@@ -339,41 +362,39 @@
             }
         }
 
-        // Fábrica matemática adaptada para niveles pedagógicos de 3ro y 4to primaria
         function generarMisionesGalacticas(tipo) {
             let misiones = [];
-            for (let k = 0; k < 60; k++) { // Generamos un lote grande para barajar aleatoriamente
+            for (let k = 0; k < 60; k++) {
                 let num1 = 0, num2 = 0, respuesta = 0, textoOp = '';
 
                 switch(tipo) {
                     case 'suma':
-                        num1 = Math.floor(Math.random() * 80) + 15; // Rango de 15 a 95
+                        num1 = Math.floor(Math.random() * 80) + 15;
                         num2 = Math.floor(Math.random() * 80) + 10;
                         respuesta = num1 + num2;
                         textoOp = `${num1} + ${num2}`;
                         break;
                     case 'resta':
                         num1 = Math.floor(Math.random() * 90) + 30;
-                        num2 = Math.floor(Math.random() * (num1 - 5)) + 5; // Evita respuestas negativas
+                        num2 = Math.floor(Math.random() * (num1 - 5)) + 5;
                         respuesta = num1 - num2;
                         textoOp = `${num1} − ${num2}`;
                         break;
                     case 'multi':
-                        num1 = Math.floor(Math.random() * 11) + 2;  // Tablas del 2 al 12
-                        num2 = Math.floor(Math.random() * 10) + 1;  
+                        num1 = Math.floor(Math.random() * 11) + 2;  
+                        num2 = Math.floor(Math.random() * 10) + 1;   
                         respuesta = num1 * num2;
                         textoOp = `${num1} × ${num2}`;
                         break;
                     case 'divi':
-                        num2 = Math.floor(Math.random() * 8) + 2;   // Divisor del 2 al 9
-                        respuesta = Math.floor(Math.random() * 10) + 1; // Cociente del 1 al 10
-                        num1 = num2 * respuesta; // Construcción inversa para asegurar división exacta
+                        num2 = Math.floor(Math.random() * 8) + 2;   
+                        respuesta = Math.floor(Math.random() * 10) + 1; 
+                        num1 = num2 * respuesta; 
                         textoOp = `${num1} ÷ ${num2}`;
                         break;
                 }
                 misiones.push({ texto: textoOp, resultado: respuesta });
             }
-            // Barajado completo aleatorio cada vez que inicia una nueva partida
             return misiones.sort(() => Math.random() - 0.5).slice(0, totalRondasMaximas);
         }
 
@@ -385,7 +406,6 @@
             }, 1000);
         }
 
-        // Activación de la pantalla de combate matemático
         function comenzarMision(tipoSeleccionado) {
             iniciarAudioEspacial();
             modoJuego = tipoSeleccionado;
@@ -446,9 +466,8 @@
             const robot = document.getElementById('navegante');
             const consola = document.getElementById('consola-feedback');
 
-            // Efecto visual 2D de fuego láser desde la izquierda
             robot.classList.remove('disparar-animacion');
-            void robot.offsetWidth; // Truco CSS para resetear la animación instantáneamente
+            void robot.offsetWidth; 
             robot.classList.add('disparar-animacion');
 
             if (numeroElegido === ejercicioActual.resultado) {
@@ -460,7 +479,6 @@
 
                 if (fallosPorPregunta === 0) respuestasCorrectasSinFallo++;
 
-                // Bloqueo temporal para evitar doble disparo antes de avanzar
                 document.querySelectorAll('.asteroide').forEach(a => a.style.pointerEvents = 'none');
 
                 setTimeout(() => {
@@ -475,11 +493,10 @@
                 sonidoEfectoLaser('laser_error');
                 elementoHTML.classList.add('asteroide-fallido');
                 robot.innerText = '😰';
-                consola.innerText = '¡Fallo en el cálculo! El escudo resiste. ¡Inténtalo de nuevo! 🛡️';
+                consola.innerText = '¡Fallo en el cálculo! Inténtalo de nuevo. 🛡️';
                 consola.style.color = 'var(--neon-red)';
                 fallosPorPregunta++;
                 
-                // Quitar clase roja tras un momento para permitir otro intento cómodo
                 setTimeout(() => {
                     elementoHTML.classList.remove('asteroide-fallido');
                 }, 600);
@@ -494,13 +511,13 @@
             const porcentajeFinal = Math.round((respuestasCorrectasSinFallo / totalRondasMaximas) * 100);
             document.getElementById('porcentaje-eficiencia').innerText = porcentajeFinal + '%';
 
-            let textoFinal = `Has completado la defensa del sector en un tiempo de <b>${segundero} segundos</b>. `;
+            let textoFinal = `Has completado la defensa del sector en <b>${segundero} segundos</b>. `;
             if (porcentajeFinal === 100) {
-                textoFinal += "¡Nivel Almirante Galáctico! Tu precisión matemática en los 30 objetivos ha sido perfecta. La galaxia está a salvo gracias a ti. 🏆👽🛸";
+                textoFinal += "¡Nivel Almirante Galáctico! Tu precisión matemática ha sido perfecta. 🏆👽🛸";
             } else if (porcentajeFinal >= 75) {
-                textoFinal += "¡Piloto Excelente! Tienes un cálculo mental ultra rápido y muy seguro. ¡Gran trabajo en el espacio! ⚡✨";
+                textoFinal += "¡Piloto Excelente! Tienes un cálculo mental ultra rápido. ⚡✨";
             } else {
-                textoFinal += "¡Misión cumplida, recluta! Lograste limpiar los 30 asteroides. Sigue entrenando tus cañones para ser el más rápido del universo. 🚀📚";
+                textoFinal += "¡Misión cumplida, recluta! Sigue entrenando para ser el más rápido del universo. 🚀📚";
             }
             document.getElementById('resumen-combate').innerHTML = textoFinal;
         }
